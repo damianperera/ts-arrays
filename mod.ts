@@ -46,7 +46,7 @@ export namespace Arrays {
      *     const mergedArr = Arrays.merge(arr1, arr2, arr3, arr4)
      * 
      * @param array the source array
-     * @param...array rest of the arrays
+     * @param ...array rest of the arrays
      */
     export function merge(array: Array<any>, ...args: any): Array<any> {
         return [...array, ...args.flat()]
@@ -60,8 +60,12 @@ export namespace Arrays {
      *     const arr = [1, 1, "Dog", "Dog", 123.42, 123.42]
      *     const uniqueArr = Arrays.unique(arr1)
      * 
+     * @param array the source array
+     * @param sort return sorted values - defaults to false
      */
-    export const unique = (array: Array<any>, sort: Boolean = false): Array<any> => isValidArray(array) ? (sort ? [...new Set(array)].sort() : [...new Set(array)]) : []
+    export function unique(array: Array<any>, sort: Boolean = false): Array<any> {
+        return isValidArray(array) ? (sort ? [...new Set(array)].sort() : [...new Set(array)]) : []
+    }
 
     /**
      * Returns the common values from all the given arrays.
@@ -75,8 +79,12 @@ export namespace Arrays {
      * 
      *     const commonArr = Arrays.common(arr1, arr2, arr3, arr4)
      * 
+     * @param array the source array
+     * @param ...array rest of the arrays
      */
-    export const common = (array: Array<any>, ...args: Array<any>): Array<any> => array.filter(item => args.flat().includes(item))
+    export function common(array: Array<any>, ...args: Array<any>): Array<any> {
+        return array.filter(item => args.flat().includes(item))
+    }
 
     /**
      * Returns the unique elements in an array compared to the rest of the arrays (args).
@@ -90,11 +98,15 @@ export namespace Arrays {
      * 
      *     const diffArr = Arrays.diff(arr1, arr2, arr3, arr4)
      * 
+     * @param array the source array
+     * @param ...array rest of the arrays
      */
-    export const diff = (array: Array<any>, ...args: Array<any>): Array<any> => array.filter(item => !args.flat().includes(item))
+    export function diff(array: Array<any>, ...args: Array<any>): Array<any> {
+        return array.filter(item => !args.flat().includes(item))
+    }
 
     /**
-     * Returns an array without the elements in rest of the arrays (args).
+     * Returns an array without the elements in the rest of the arrays (args).
      *
      *     import { Arrays } from "https://deno.land/x/arrays/mod.ts";
      * 
@@ -103,7 +115,11 @@ export namespace Arrays {
      * 
      *     const resArr = Arrays.remove(arr1, arr2, arr3, arr4)
      * 
+     * @param array the source array
+     * @param ...array rest of the arrays
      */
-    export const remove = (array: Array<any>, ...args: Array<any>) => array.filter((value) => !args.includes(value))
+    export function remove(array: Array<any>, ...args: Array<any>) {
+        return array.filter((value) => !args.includes(value))
+    }
 
 }
