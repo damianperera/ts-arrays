@@ -65,3 +65,19 @@ test('flatten', () => {
 
     assertEquals(7, res.length)
 })
+
+test('containAll', () => {
+    const arr1 = [1, 2, 3, 4]
+    const arr2 = [2, "cat"]
+    const arr3 = [1.1, 2.2, 3]
+    const arr4 = [[ "cheetah", "rhino" ], 4]
+
+    const arr5 = ["deno", "land"]
+    const arr6 = ["land", "deno"]
+     
+    const res = Arrays.containsAll(arr1, arr2, arr3, arr4)
+    const res2 = Arrays.containsAll(arr5, arr6)
+
+    assertEquals(false, res)
+    assertEquals(true, res2)
+})

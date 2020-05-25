@@ -138,4 +138,23 @@ export namespace Arrays {
         }, []);
     }
 
+    /**
+     * Checks if all the elements in the source array are present in the other arrays (args).
+     *
+     *     import { Arrays } from "https://deno.land/x/arrays/mod.ts"
+     * 
+     *     const arr1 = [1, 2, 3, 4]
+     *     const arr2 = [2, "cat"]
+     *     const arr3 = [1.1, 2.2, 3]
+     *     const arr4 = [[ "cheetah", "rhino" ], 4]
+     * 
+     *     const diffArr = Arrays.containsAll(arr1, arr2, arr3, arr4)
+     * 
+     * @param {Array} array the source array
+     * @param {...Array} args rest of the arrays
+     */
+    export function containsAll(source: Array<any>, ...args: Array<any>) : Boolean {
+        return diff(source, ...args).length === 0
+    }
+
 }
