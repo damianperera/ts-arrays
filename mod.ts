@@ -25,9 +25,13 @@ export namespace Arrays {
      * 
      *     const arr = [1, 2, 3, 4, NaN, 5, null, 6]
      *     const compactArr = Arrays.compact(arr)
+     *
+     * @param array the source array
      * 
      */
-    export const compact = (array: Array<any>): Array<any> => array.filter(Boolean)
+    export function compact (array: Array<any>): Array<any> {
+        return array.filter(Boolean)
+    }
 
     /**
      * Merge the elements from the rest of the arrays (args) to the first array. A nested array will be considered as a single value.
