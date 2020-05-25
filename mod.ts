@@ -161,4 +161,8 @@ export namespace Arrays {
         return diff(source, ...args).length === 0
     }
 
+    Array.prototype.containsAll = function(...args: any): Boolean {
+        return false
+    }
+    
 }
