@@ -1,7 +1,7 @@
-# ArrayUtils
+# Arrays
 [![Deno Module](https://img.shields.io/badge/Module-Deno-blue)](https://deno.land/x) [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
-Provides methods for common Array operations.
+Provides utility methods for common Array operations.
 
 # Usage
 
