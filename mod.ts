@@ -170,7 +170,6 @@ export namespace Arrays {
      *     const arr = [[ "cheetah", "rhino", ["sun", "moon"], [["nested nested", "test"]]], 4]
      *     const res = arr.flatten()
      * 
-     * @param array source array
      */
     export function flatten(array: Array<any>) : Array<any> {
         return array.reduce((accumulator, value) => {
@@ -194,7 +193,6 @@ export namespace Arrays {
      *     const falseyArr = arr1.containsAll(arr1, arr2, arr3, arr4)
      *     const truthyArr = arr5.containsAll(arr6)
      * 
-     * @param array the source array
      * @param ...args rest of the arrays
      */
     export function containsAll(source: Array<any>, ...args: Array<any>) : Boolean {
