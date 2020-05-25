@@ -151,8 +151,8 @@ export namespace Arrays {
      *     const arr5 = ["deno", "land"]
      *     const arr6 = ["land", "deno"]
      * 
-     *     const diffArr = Arrays.containsAll(arr1, arr2, arr3, arr4)
-     *     const res2 = Arrays.containsAll(arr5, arr6)
+     *     const falseyArr = Arrays.containsAll(arr1, arr2, arr3, arr4)
+     *     const truthyArr = Arrays.containsAll(arr5, arr6)
      * 
      * @param array the source array
      * @param ...args rest of the arrays
