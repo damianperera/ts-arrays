@@ -4,13 +4,15 @@ import { Arrays } from './mod.ts'
 const { test } = Deno
 
 test('chunk', () => {
-    const res = Arrays.chunk([1, 2, 3], 2)
+    const arr = [1, 2, 3]
+    const res = arr.chunk(2)
     assertEquals(2, res.length)
     assertEquals(3, res[1][0])
 })
 
 test('compact', () => {
-    const res = Arrays.compact([ 0, 1, NaN, 2, false, 3, "", 4, null, 5])
+    const arr = [ 0, 1, NaN, 2, false, 3, "", 4, null, 5]
+    const res = arr.compact()
     assertEquals(5, res.length)
 })
 
@@ -20,13 +22,13 @@ test('merge', () => {
     const arr3 = [1.1, 2.2, 3.3]
     const arr4 = [["cheetah","rhino"], "monkey"]
 
-    const res = Arrays.merge(arr1, arr2, arr3, arr4)
+    const res = arr1.merge(arr2, arr3, arr4)
     assertEquals(11, res.length)
 })
 
 test('unique', () => {
     const arr = [1, 1, "Dog", "Dog", 123.42, 123.42]
-    const res = Arrays.unique(arr)
+    const res = arr.unique()
 
     assertEquals(3, res.length)
 })
@@ -37,7 +39,7 @@ test('common', () => {
     const arr3 = [1.1, 2.2, 3]
     const arr4 = [["cheetah", "rhino"], 4]
 
-    const res = Arrays.common(arr1, arr2, arr3, arr4)
+    const res = arr1.common(arr2, arr3, arr4)
     assertEquals(3, res.length)
 })
 
@@ -47,7 +49,7 @@ test('diff', () => {
     const arr3 = [1.1, 2.2, 3]
     const arr4 = [["cheetah", "rhino"], 4]
 
-    const res = Arrays.diff(arr1, arr2, arr3, arr4)
+    const res = arr1.diff(arr2, arr3, arr4)
     assertEquals(1, res.length)
 })
 
@@ -61,7 +63,7 @@ test('remove', () => {
 
 test('flatten', () => {
     const arr = [[ "cheetah", "rhino", ["sun", "moon"], [["nested nested", "test"]]], 4]
-    const res = Arrays.flatten(arr)
+    const res = arr.flatten()
 
     assertEquals(7, res.length)
 })
@@ -75,8 +77,8 @@ test('containAll', () => {
     const arr5 = ["deno", "land"]
     const arr6 = ["land", "deno"]
      
-    const res = Arrays.containsAll(arr1, arr2, arr3, arr4)
-    const res2 = Arrays.containsAll(arr5, arr6)
+    const res = arr1.containsAll(arr2, arr3, arr4)
+    const res2 = arr5.containsAll(arr6)
 
     assertEquals(false, res)
     assertEquals(true, res2)
