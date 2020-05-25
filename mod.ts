@@ -25,7 +25,7 @@ export namespace Arrays {
     export const compact = (array: Array<any>): Array<any> => array.filter(Boolean)
 
     /**
-     * Merge any additional values (args) to the first array. A nested array will be considered as a single value.
+     * Merge the elements from the rest of the arrays (args) to the first array. A nested array will be considered as a single value.
      *
      *     import { Arrays } from "https://deno.land/x/arrays/mod.ts";
      * 
@@ -66,7 +66,7 @@ export namespace Arrays {
     export const common = (array: Array<any>, ...args: Array<any>): Array<any> => array.filter(item => args.flat().includes(item))
 
     /**
-     * Returns the unique values from the array compared to the other arrays.
+     * Returns the unique elements in an array compared to the rest of the arrays (args).
      *
      *     import { Arrays } from "https://deno.land/x/arrays/mod.ts";
      * 
@@ -75,13 +75,13 @@ export namespace Arrays {
      *     const arr3 = [1.1, 2.2, 3]
      *     const arr4 = [[ "cheetah", "rhino" ], 4]
      * 
-     *     const commonArr = Arrays.diff(arr1, arr2, arr3, arr4)
+     *     const diffArr = Arrays.diff(arr1, arr2, arr3, arr4)
      * 
      */
     export const diff = (array: Array<any>, ...args: Array<any>): Array<any> => array.filter(item => !args.flat().includes(item))
 
     /**
-     * Returns an array without the provided values.
+     * Returns an array without the elements in rest of the arrays (args).
      *
      *     import { Arrays } from "https://deno.land/x/arrays/mod.ts";
      * 
