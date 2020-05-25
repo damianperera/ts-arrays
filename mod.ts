@@ -10,8 +10,13 @@ export namespace Arrays {
      *     const arr = [1, 2, 3, 4, 5]
      *     const chunkedArr = Arrays.chunk(arr, 2)
      * 
+     * @param array the source array
+     * @param size size of each chunk
+     * 
      */
-    export const chunk = (array: Array<any>, size: number): Array<any> => isValidArray(array) ? [array.slice(0, size)].concat(chunk(array.slice(size), size)) : []
+    export function chunk (array: Array<any>, size: number): Array<any> {
+        return isValidArray(array) ? [array.slice(0, size)].concat(chunk(array.slice(size), size)) : []
+    }
 
     /**
      * Returns an array with all falsey values (false, null, 0, "", undefined, and NaN) removed.
