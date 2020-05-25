@@ -5,7 +5,7 @@ export namespace Arrays {
     /**
      * Returns an array split into chunks. If the array can't be split equally based on the given size, the last chunk will be the remaining elements.
      *
-     *     import { Arrays } from "https://deno.land/x/arrays/mod.ts";
+     *     import { Arrays } from "https://deno.land/x/arrays/mod.ts"
      * 
      *     const arr = [1, 2, 3, 4, 5]
      *     const chunkedArr = Arrays.chunk(arr, 2)
@@ -21,7 +21,7 @@ export namespace Arrays {
     /**
      * Returns an array with all falsey values (false, null, 0, "", undefined, and NaN) removed.
      *
-     *     import { Arrays } from "https://deno.land/x/arrays/mod.ts";
+     *     import { Arrays } from "https://deno.land/x/arrays/mod.ts"
      * 
      *     const arr = [1, 2, 3, 4, NaN, 5, null, 6]
      *     const compactArr = Arrays.compact(arr)
@@ -36,7 +36,7 @@ export namespace Arrays {
     /**
      * Merge the elements from the rest of the arrays (args) to the first array. A nested array will be considered as a single value.
      *
-     *     import { Arrays } from "https://deno.land/x/arrays/mod.ts";
+     *     import { Arrays } from "https://deno.land/x/arrays/mod.ts"
      * 
      *     const arr1 = [1, 2, 3, 4]
      *     const arr2 = ["dog", "cat"]
@@ -55,7 +55,7 @@ export namespace Arrays {
     /**
      * Returns the unique values from a given array.
      *
-     *     import { Arrays } from "https://deno.land/x/arrays/mod.ts";
+     *     import { Arrays } from "https://deno.land/x/arrays/mod.ts"
      * 
      *     const arr = [1, 1, "Dog", "Dog", 123.42, 123.42]
      *     const uniqueArr = Arrays.unique(arr1)
@@ -70,7 +70,7 @@ export namespace Arrays {
     /**
      * Returns the common values from all the given arrays.
      *
-     *     import { Arrays } from "https://deno.land/x/arrays/mod.ts";
+     *     import { Arrays } from "https://deno.land/x/arrays/mod.ts"
      * 
      *     const arr1 = [1, 2, 3, 4]
      *     const arr2 = [2, "cat"]
@@ -89,7 +89,7 @@ export namespace Arrays {
     /**
      * Returns the unique elements in an array compared to the rest of the arrays (args).
      *
-     *     import { Arrays } from "https://deno.land/x/arrays/mod.ts";
+     *     import { Arrays } from "https://deno.land/x/arrays/mod.ts"
      * 
      *     const arr1 = [1, 2, 3, 4]
      *     const arr2 = [2, "cat"]
@@ -108,18 +108,34 @@ export namespace Arrays {
     /**
      * Returns an array without the elements in the rest of the arrays (args).
      *
-     *     import { Arrays } from "https://deno.land/x/arrays/mod.ts";
+     *     import { Arrays } from "https://deno.land/x/arrays/mod.ts"
      * 
      *     const arr = [1, 1, "Dog", "Dog", 123.42, 123.42]
      *     const res = Arrays.remove(arr, "Dog")
      * 
      *     const resArr = Arrays.remove(arr1, arr2, arr3, arr4)
      * 
-     * @param array the source array
-     * @param ...array rest of the arrays
+     * @param {Array} array the source array
+     * @param {...Array} args rest of the arrays
      */
-    export function remove(array: Array<any>, ...args: Array<any>) {
+    export function remove(array: Array<any>, ...args: Array<any>) : Array<any> {
         return array.filter((value) => !args.includes(value))
+    }
+
+    /**
+     * Flattens an arrays of arrays into a single array.
+     * 
+     *     import { Arrays } from "https://deno.land/x/arrays/mod.ts"
+     * 
+     *     const arr = [[ "cheetah", "rhino", ["sun", "moon"], [["nested nested", "test"]]], 4]
+     *     const res = Arrays.flatten(arr)
+     * 
+     * @param {Array} array source array
+     */
+    export function flatten(array: Array<any>) : Array<any> {
+        return array.reduce((accumulator, value) => {
+            return accumulator.concat(Array.isArray(value) ? flatten(value) : value);
+        }, []);
     }
 
 }
