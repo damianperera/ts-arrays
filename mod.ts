@@ -14,7 +14,7 @@ export namespace Arrays {
      * @param size size of each chunk
      * 
      */
-    export function chunk (array: Array<any>, size: number): Array<any> {
+    export function chunk(array: Array<any>, size: number): Array<any> {
         return isValidArray(array) ? [array.slice(0, size)].concat(chunk(array.slice(size), size)) : []
     }
 
@@ -29,7 +29,7 @@ export namespace Arrays {
      * @param array the source array
      * 
      */
-    export function compact (array: Array<any>): Array<any> {
+    export function compact(array: Array<any>): Array<any> {
         return array.filter(Boolean)
     }
 
@@ -45,8 +45,12 @@ export namespace Arrays {
      * 
      *     const mergedArr = Arrays.merge(arr1, arr2, arr3, arr4)
      * 
+     * @param array the source array
+     * @param...array rest of the arrays
      */
-    export const merge = (array: Array<any>, ...args: any): Array<any> => [...array, ...args.flat()]
+    export function merge(array: Array<any>, ...args: any): Array<any> {
+        return [...array, ...args.flat()]
+    }
     
     /**
      * Returns the unique values from a given array.
