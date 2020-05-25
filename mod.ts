@@ -1,5 +1,11 @@
-export namespace Arrays {
+declare global {
+    interface Array<T> {
+        containsAll(...args: Array<any>): Boolean;
+    }
+}
 
+export namespace Arrays {
+    
     const isValidArray = (array: Array<any>): Boolean => Boolean(Array.isArray(array) && array.length);
 
     /**
