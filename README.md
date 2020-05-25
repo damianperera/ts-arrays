@@ -5,13 +5,13 @@ Provides utility methods for common Array operations.
 
 # Usage
 
+For documentation please refer the [Deno Doc](https://doc.deno.land/https/deno.land/x/arrays/mod.ts).
+
 ## Running Tests
 In order to run the tests execute the Deno test command from the root directory.
 ```console
 foo@bar:~$ deno test
 ```
-
-If your having any issues using this module please refer the (Docs)[https://doc.deno.land/https/deno.land/x/arrays/mod.ts] for usage examples.
 
 # License
 
