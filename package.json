@@ -2,7 +2,8 @@
   "name": "ts-arrays",
   "version": "1.0.3",
   "description": "Provides utility methods for common Array operations.",
-  "main": "mod.ts",
+  "main": "./lib/mod.js",
+  "types": "./lib/mod.d.ts",
   "scripts": {
     "build": "yarn cp && tsc",
     "build:check": "tsc --noEmit",
