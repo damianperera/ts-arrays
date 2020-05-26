@@ -5,7 +5,7 @@ Provides utility methods for common Array operations.
 
 # Usage
 
-For documentation please refer the [Deno Doc](https://doc.deno.land/https/deno.land/x/arrays/mod.ts).
+For usage examples and documentation please refer the [Deno Doc](https://doc.deno.land/https/deno.land/x/arrays/mod.ts).
 
 ## Running Tests
 In order to run the tests execute the Deno test command from the root directory.
