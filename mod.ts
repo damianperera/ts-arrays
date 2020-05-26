@@ -17,9 +17,9 @@ declare global {
 
 export namespace Arrays {
     
-    log.info('Binding Array utility methods from https://deno.land/x/arrays to Array.Prototype')
-
     const isValidArray = (array: Array<any>): Boolean => Boolean(Array.isArray(array) && array.length);
+
+    log.debug('Binding functions from https://deno.land/x/arrays to Array.Prototype')
 
     Array.prototype.chunk = function(size: number): Array<any> {
         return chunk(this, size)
