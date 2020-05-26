@@ -252,7 +252,7 @@ export namespace Arrays {
     }
 
     /**
-     * Checks if all the elements and nested elements of an array are of the specified type.
+     * Flattens an array and checks if all the elements are of the specified type.
      * 
      *     import from 'https://deno.land/x/arrays/mod.ts'
      * 
