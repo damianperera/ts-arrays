@@ -4,10 +4,22 @@
 Provides utility methods for common Array operations. Supports both Deno and Node.js runtimes.
 
 ## Deno
-For usage examples in Deno and related documentation please view the [Deno Docs](https://doc.deno.land/https/deno.land/x/arrays/mod.ts).
+
+No installation required. Simply import the module at the start of your file.
+
+```typescript
+import 'https://deno.land/x/arrays/mod.ts'
+```
+
+For usage examples and related documentation please view the [Deno Docs](https://doc.deno.land/https/deno.land/x/arrays/mod.ts).
 
 ## Node.js
-For usage examples in Node.js and related documentation please view the [Node Docs](https://damianperera.github.io/ts-arrays/interfaces/__global.array.html).
+
+```console
+foo@bar:~$ npm install --save ts-arrays
+```
+
+For usage examples and related documentation please view the [Node Docs](https://damianperera.github.io/ts-arrays/interfaces/__global.array.html).
 
 ---
 
