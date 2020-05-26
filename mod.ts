@@ -1,7 +1,7 @@
-/**
- * Automagically binds these utility methods to Array.Prototype so that you can access them directly from an Array.
- */
 declare global {
+    /**
+     * Automagically binds these utility methods to Array.Prototype so that you can access them directly from an Array.
+     */
     interface Array<T> {
         chunk(size: number): Array<any>
         compact(): Array<any>
@@ -63,7 +63,7 @@ export namespace Arrays {
      *     const arr = [1, 2, 3, 4, 5]
      *     const chunkedArr = arr.chunk(2)
      * 
-     * @param size size of each chunk
+     * @param {number} size - Size of each chunk
      * 
      */
     export function chunk(array: Array<any>, size: number): Array<any> {
@@ -95,7 +95,7 @@ export namespace Arrays {
      * 
      *     const mergedArr = arr1.merge(arr2, arr3, arr4)
      * 
-     * @param ...args rest of the arrays
+     * @param {Array} args - Rest of the arrays
      */
     export function merge(array: Array<any>, ...args: any): Array<any> {
         return [...array, ...args.flat()]
@@ -109,7 +109,7 @@ export namespace Arrays {
      *     const arr = [1, 1, "Dog", "Dog", 123.42, 123.42]
      *     const uniqueArr = arr.unique()
      * 
-     * @param sort return sorted values - defaults to false
+     * @param {Boolean} sort - Return sorted values, defaults to false
      */
     export function unique(array: Array<any>, sort: Boolean = false): Array<any> {
         return isValidArray(array) ? (sort ? [...new Set(array)].sort() : [...new Set(array)]) : []
@@ -127,7 +127,7 @@ export namespace Arrays {
      * 
      *     const commonArr = arr1.common(arr2, arr3, arr4)
      * 
-     * @param ...args rest of the arrays
+     * @param {Array} args - Rest of the arrays
      */
     export function common(array: Array<any>, ...args: Array<any>): Array<any> {
         return array.filter(item => args.flat().includes(item))
@@ -145,7 +145,7 @@ export namespace Arrays {
      * 
      *     const diffArr = arr1.diff(arr2, arr3, arr4)
      * 
-     * @param ...args rest of the arrays
+     * @param {Array} args - Rest of the arrays
      */
     export function diff(array: Array<any>, ...args: Array<any>): Array<any> {
         return array.filter(item => !args.flat().includes(item))
@@ -159,7 +159,7 @@ export namespace Arrays {
      *     const arr = [1, 1, "Dog", "Dog", 123.42, 123.42]
      *     const res = arr.remove("Dog")
      * 
-     * @param ...args rest of the arrays
+     * @param {Array} args - Rest of the arrays
      */
     export function remove(array: Array<any>, ...args: any) : Array<any> {
         return array.filter((value) => !args.includes(value))
@@ -196,7 +196,7 @@ export namespace Arrays {
      *     const falseyArr = arr1.containsAll(arr1, arr2, arr3, arr4)
      *     const truthyArr = arr5.containsAll(arr6)
      * 
-     * @param ...args rest of the arrays
+     * @param {Array} args - Rest of the arrays
      */
     export function containsAll(source: Array<any>, ...args: Array<any>) : Boolean {
         return diff(source, ...args).length === 0
