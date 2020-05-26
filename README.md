@@ -1,5 +1,5 @@
 # Arrays
-[![Deno Module](https://img.shields.io/badge/deno-module-blue)](https://deno.land/x) [![deno doc](https://doc.deno.land/badge.svg)](https://doc.deno.land/https/deno.land/x/arrays/mod.ts) [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![deno module](https://img.shields.io/badge/deno-module-blue)](https://deno.land/x) [![deno doc](https://doc.deno.land/badge.svg)](https://doc.deno.land/https/deno.land/x/arrays/mod.ts) [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
 Provides utility methods for common Array operations.
 
