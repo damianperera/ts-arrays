@@ -13,7 +13,7 @@
     "release": "yarn build && node node_modules/np/source/cli.js",
     "src": "mkdir src",
     "cp": "yes | cp -rf mod.ts src/ && sed -i \"s,import 'https://deno.land/x/arrays/mod.ts',import 'ts-arrays',g\" src/mod.ts",
-    "docs": "./node_modules/typedoc/bin/typedoc --mode file --out docs src/ && rm -rf src/ && touch docs/.nojekyll"
+    "docs": "./node_modules/typedoc/bin/typedoc --mode file --out docs src/ && touch docs/.nojekyll"
   },
   "repository": {
     "type": "git",
