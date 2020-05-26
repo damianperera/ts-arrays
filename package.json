@@ -4,11 +4,15 @@
   "description": "Provides utility methods for common Array operations.",
   "main": "mod.ts",
   "scripts": {
+    "build": "yarn cp && tsc",
+    "build:check": "tsc --noEmit",
     "test": "yarn test:jest && yarn test:deno",
     "test:jest": "jest jest.local.test.ts --coverage",
     "test:deno": "deno test deno.remote.test.ts --reload",
-    "release": "node node_modules/np/source/cli.js",
-    "docs": "mkdir src && cp mod.ts src/ && sed -i 's,https://deno.land/x/arrays/mod.ts,ts-arrays,g' src/mod.ts && ./node_modules/typedoc/bin/typedoc --mode file --out docs src/ && rm -rf src/ && touch docs/.nojekyll"
+    "release": "tsc && node node_modules/np/source/cli.js",
+    "src": "mkdir src",
+    "cp": "yes | cp -rf mod.ts src/ && sed -i 's,https://deno.land/x/arrays/mod.ts,ts-arrays,g' src/mod.ts",
+    "docs": "./node_modules/typedoc/bin/typedoc --mode file --out docs src/ && rm -rf src/ && touch docs/.nojekyll"
   },
   "repository": {
     "type": "git",
@@ -34,5 +38,8 @@
     "ts-jest": "^26.0.0",
     "typedoc": "^0.17.7",
     "typescript": "^3.9.3"
-  }
+  },
+  "files": [
+    "lib"
+  ]
 }
