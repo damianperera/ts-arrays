@@ -1,8 +1,4 @@
 /**
- * @author Damian Perera
- */
-
-/**
  * Extends Array.Prototype with the below functions.
  */
 export namespace Arrays {
