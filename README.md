@@ -1,14 +1,12 @@
 # Arrays
-[![npm module](https://img.shields.io/badge/node-doc-blue?logo=npm)](https://damianperera.github.io/array-utils/interfaces/__global.array.html) [![deno doc](https://doc.deno.land/badge.svg)](https://doc.deno.land/https/deno.land/x/arrays/mod.ts) [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![npm module](https://img.shields.io/badge/node-doc-blue)](https://damianperera.github.io/array-utils/interfaces/__global.array.html) [![deno doc](https://doc.deno.land/badge.svg)](https://doc.deno.land/https/deno.land/x/arrays/mod.ts) [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
 Provides utility methods for common Array operations. Supports both Deno and Node.js runtimes.
 
-# Usage
-
-## Deno
+## Deno :sauropod:
 For usage examples in Deno and related documentation please view the [Deno Docs](https://doc.deno.land/https/deno.land/x/arrays/mod.ts).
 
-## Node.js
+## Node.js [![NPM](https://nodei.co/npm/ts-arrays.png?mini=true)](https://nodei.co/npm/ts-arrays/)
 For usage examples in Node.js and related documentation please view the [Node Docs](https://damianperera.github.io/ts-arrays/interfaces/__global.array.html).
 
 ## Running Tests
