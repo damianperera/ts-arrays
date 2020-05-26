@@ -1,7 +1,4 @@
 declare global {
-    /**
-     * Automagically binds these utility methods to Array.Prototype so that you can access them directly from an Array.
-     */
     interface Array<T> {
         chunk(size: number): Array<any>
         compact(): Array<any>
@@ -176,8 +173,8 @@ export namespace Arrays {
      */
     export function flatten(array: Array<any>) : Array<any> {
         return array.reduce((accumulator, value) => {
-            return accumulator.concat(Array.isArray(value) ? flatten(value) : value);
-        }, []);
+            return accumulator.concat(Array.isArray(value) ? flatten(value) : value)
+        }, [])
     }
 
     /**

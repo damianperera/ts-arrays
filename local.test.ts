@@ -3,20 +3,20 @@ import './mod.ts'
 
 const { test } = Deno
 
-test('chunk', () => {
+test('local - chunk', () => {
     const arr = [1, 2, 3]
     const res = arr.chunk(2)
     assertEquals(2, res.length)
     assertEquals(3, res[1][0])
 })
 
-test('compact', () => {
+test('local - compact', () => {
     const arr = [ 0, 1, NaN, 2, false, 3, "", 4, null, 5]
     const res = arr.compact()
     assertEquals(5, res.length)
 })
 
-test('merge', () => {
+test('local - merge', () => {
     const arr1 = [1, 2, 3, 4]
     const arr2 = ["dog", "cat"]
     const arr3 = [1.1, 2.2, 3.3]
@@ -26,14 +26,14 @@ test('merge', () => {
     assertEquals(11, res.length)
 })
 
-test('unique', () => {
+test('local - unique', () => {
     const arr = [1, 1, "Dog", "Dog", 123.42, 123.42]
     const res = arr.unique()
 
     assertEquals(3, res.length)
 })
 
-test('common', () => {
+test('local - common', () => {
     const arr1 = [1, 2, 3, 4]
     const arr2 = [2, "cat"]
     const arr3 = [1.1, 2.2, 3]
@@ -43,7 +43,7 @@ test('common', () => {
     assertEquals(3, res.length)
 })
 
-test('diff', () => {
+test('local - diff', () => {
     const arr1 = [1, 2, 3, 4]
     const arr2 = [2, "cat"]
     const arr3 = [1.1, 2.2, 3]
@@ -53,21 +53,21 @@ test('diff', () => {
     assertEquals(1, res.length)
 })
 
-test('remove', () => {
+test('local - remove', () => {
     const arr = [1, 1, "Dog", "Dog", 123.42, 123.42]
     const res = arr.remove("Dog")
 
     assertEquals(4, res.length)
 })
 
-test('flatten', () => {
+test('local - flatten', () => {
     const arr = [[ "cheetah", "rhino", ["sun", "moon"], [["nested nested", "test"]]], 4]
     const res = arr.flatten()
 
     assertEquals(7, res.length)
 })
 
-test('containAll', () => {
+test('local - containAll', () => {
     const arr1 = [1, 2, 3, 4]
     const arr2 = [2, "cat"]
     const arr3 = [1.1, 2.2, 3]
