@@ -25,7 +25,7 @@ export namespace Arrays {
     
     const isValidArray = (array: Array<any>): Boolean => Boolean(Array.isArray(array) && array.length);
 
-    log.debug('Binding functions from https://deno.land/x/arrays to Array.Prototype')
+    log.debug('Extending Array.Prototype with functions from https://deno.land/x/arrays')
 
     class Types {
         static typeName(ctor: { name:string }) : string {

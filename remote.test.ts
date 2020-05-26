@@ -92,7 +92,6 @@ test('remote - toObject', () => {
     assertEquals(obj, {'name': 'deno', 'location': 'land'})
 })
 
-
 test('remote - isType', () => {
     const arr = [1, 2, 3, 's']
     const arr2 = [['1', '2'], [ 3, 4]]
