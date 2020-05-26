@@ -27,12 +27,6 @@ export namespace Arrays {
 
     log.debug('Extending Array.Prototype with functions from https://deno.land/x/arrays')
 
-    class Types {
-        static typeName(ctor: { name:string }) : string {
-            return ctor.name;
-        }
-    }
-
     Array.prototype.chunk = function(size: number): Array<any> {
         return chunk(this, size)
     }
