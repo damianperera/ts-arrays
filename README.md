@@ -9,7 +9,7 @@ Provides utility methods for common Array operations. Supports both Deno and Nod
 For usage examples in Deno and related documentation please view the [Deno Docs](https://doc.deno.land/https/deno.land/x/arrays/mod.ts).
 
 ## Node.js
-For usage examples in Node.js and related documentation please view the [Node Docs](https://damianperera.github.io/array-utils/interfaces/__global.array.html).
+For usage examples in Node.js and related documentation please view the [Node Docs](https://damianperera.github.io/ts-arrays/interfaces/__global.array.html).
 
 ## Running Tests
 In order to run both the Deno and Jest suites, execute the following command from the root directory.
