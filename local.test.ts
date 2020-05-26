@@ -91,3 +91,8 @@ test('local - toObject', () => {
     assert(typeof obj === 'object')
     assertEquals({'name': 'deno', 'location': 'land'}, obj)
 })
+
+test('local - isType', () => {
+    const arr = [1, 2, 3]
+    const isValid = arr.isType<number>()
+})

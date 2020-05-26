@@ -1,5 +1,7 @@
 import * as log from 'https://deno.land/std/log/mod.ts'
 
+type Primitive = string | boolean | number | any;
+
 declare global {
     interface Array<T> {
         chunk(size: number): Array<any>
@@ -12,6 +14,7 @@ declare global {
         flatten(): Array<any>
         containsAll(...args: Array<any>): Boolean
         toObject(): Object
+        isType<T>(): Boolean
     }
 }
 
@@ -23,6 +26,12 @@ export namespace Arrays {
     const isValidArray = (array: Array<any>): Boolean => Boolean(Array.isArray(array) && array.length);
 
     log.debug('Binding functions from https://deno.land/x/arrays to Array.Prototype')
+
+    class Types {
+        static typeName(ctor: { name:string }) : string {
+            return ctor.name;
+        }
+    }
 
     Array.prototype.chunk = function(size: number): Array<any> {
         return chunk(this, size)
@@ -62,6 +71,10 @@ export namespace Arrays {
 
     Array.prototype.toObject = function(): Object {
         return toObject(this)
+    }
+
+    Array.prototype.isType = function<T extends any>(): Boolean {
+        return isType(this, Types.typeName(T))
     }
 
     /**
@@ -236,6 +249,10 @@ export namespace Arrays {
      */
     export function toObject(array: Array<any>): Object {
         return Object.fromEntries(array)
+    }
+
+    export function isType(array: Array<any>, type: string): Boolean {
+        return array.every(x => typeof x === type);
     }
     
 }
