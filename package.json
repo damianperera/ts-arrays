@@ -1,5 +1,5 @@
 {
-  "name": "array-utils",
+  "name": "ts-arrays",
   "version": "1.0.0",
   "description": "Provides utility methods for common Array operations.",
   "main": "mod.ts",
@@ -7,6 +7,7 @@
     "test": "yarn test:jest && yarn test:deno",
     "test:jest": "jest jest.local.test.ts --coverage",
     "test:deno": "deno test deno.remote.test.ts --reload",
+    "release": "node node_modules/np/source/cli.js",
     "docs": "mkdir src && cp mod.ts src/ && sed -i 's,https://deno.land/x/arrays/mod.ts,array-utils,g' src/mod.ts && ./node_modules/typedoc/bin/typedoc --mode file --out docs src/ && rm -rf src/ && touch docs/.nojekyll"
   },
   "repository": {
@@ -29,6 +30,7 @@
     "@types/node": "^14.0.5",
     "jest": "^26.0.1",
     "jest-cli": "^26.0.1",
+    "np": "^6.2.3",
     "ts-jest": "^26.0.0",
     "typedoc": "^0.17.7",
     "typescript": "^3.9.3"
