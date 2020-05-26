@@ -15,6 +15,9 @@ declare global {
     }
 }
 
+/**
+ * Extends Array.Prototype with the below functions.
+ */
 export namespace Arrays {
     
     const isValidArray = (array: Array<any>): Boolean => Boolean(Array.isArray(array) && array.length);
