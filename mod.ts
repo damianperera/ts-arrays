@@ -68,6 +68,7 @@ export namespace Arrays {
      * 
      *     const arr = [1, 2, 3, 4, 5]
      *     const chunkedArr = arr.chunk(2)
+     *     // => [[1, 2], [3, 4], 5]
      * 
      * @param {number} size - Size of each chunk
      * 
@@ -83,6 +84,7 @@ export namespace Arrays {
      * 
      *     const arr = [1, 2, 3, 4, NaN, 5, null, 6]
      *     const compactArr = arr.compact()
+     *     // => [1, 2, 3, 4, 5, 6]
      * 
      */
     export function compact(array: Array<any>): Array<any> {
@@ -100,6 +102,7 @@ export namespace Arrays {
      *     const arr4 = [[ 'cheetah', 'rhino' ], 'monkey']
      * 
      *     const mergedArr = arr1.merge(arr2, arr3, arr4)
+     *     // => [1, 2, 3, 4, 'dog', 'cat', 1.1, 2.2, 3.3, ['cheetah', 'rhino'], 'monkey']
      * 
      * @param {Array} args - Rest of the arrays
      */
@@ -114,6 +117,7 @@ export namespace Arrays {
      * 
      *     const arr = [1, 1, 'Dog', 'Dog', 123.42, 123.42]
      *     const uniqueArr = arr.unique()
+     *     // => [1, 'Dog', 123.42]
      * 
      * @param {Boolean} sort - Return sorted values, defaults to false
      */
@@ -132,6 +136,7 @@ export namespace Arrays {
      *     const arr4 = [[ 'cheetah', 'rhino' ], 4]
      * 
      *     const commonArr = arr1.common(arr2, arr3, arr4)
+     *     // => [2, 3, 4]
      * 
      * @param {Array} args - Rest of the arrays
      */
@@ -150,6 +155,7 @@ export namespace Arrays {
      *     const arr4 = [[ 'cheetah', 'rhino' ], 4]
      * 
      *     const diffArr = arr1.diff(arr2, arr3, arr4)
+     *     // => [1]
      * 
      * @param {Array} args - Rest of the arrays
      */
@@ -166,7 +172,7 @@ export namespace Arrays {
      *     const res = arr.remove('Dog')
      *     // => [1, 1, 123.42, 123.42]
      * 
-     *     const res2 = arr.remove(1, "Dog")
+     *     const res2 = arr.remove(1, 'Dog')
      *     // => [123.42, 123.42]
      * 
      * @param {any} args - Elements to remove
