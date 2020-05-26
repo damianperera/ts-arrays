@@ -93,6 +93,11 @@ test('local - toObject', () => {
 })
 
 test('local - isType', () => {
-    const arr = [1, 2, 3]
-    const isValid = arr.isType<number>()
+    const arr = [1, 2, 3, 's']
+    const arr2 = [['1', '2'], [ 3, 4]]
+    const arr3 = [['dog', ['sun', 'sky'], 'moon'], 'test']
+
+    assert(!arr.isType('number'))
+    assert(!arr2.isType('number'))
+    assert(arr3.isType('string'))
 })

@@ -14,7 +14,7 @@ declare global {
         flatten(): Array<any>
         containsAll(...args: Array<any>): Boolean
         toObject(): Object
-        isType<T>(): Boolean
+        isType(value: string): Boolean
     }
 }
 
@@ -73,8 +73,8 @@ export namespace Arrays {
         return toObject(this)
     }
 
-    Array.prototype.isType = function<T extends any>(): Boolean {
-        return isType(this, Types.typeName(T))
+    Array.prototype.isType = function(value: string): Boolean {
+        return isType(this, value)
     }
 
     /**
@@ -251,8 +251,19 @@ export namespace Arrays {
         return Object.fromEntries(array)
     }
 
+    /**
+     * Checks if all the elements and nested elements of an array are of the specified type.
+     * 
+     *     import from 'https://deno.land/x/arrays/mod.ts'
+     * 
+     *     const arr = [['dog', ['sun', 'sky'], 'moon'], 'test']
+     *     const isValid = arr.isType('number')
+     *     // => false
+     * 
+     * @param {string} type - Type to match
+     */
     export function isType(array: Array<any>, type: string): Boolean {
-        return array.every(x => typeof x === type);
+        return array.flatten().every(x => typeof x === type)
     }
     
 }

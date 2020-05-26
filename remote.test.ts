@@ -91,3 +91,14 @@ test('remote - toObject', () => {
     assert(typeof obj === 'object')
     assertEquals(obj, {'name': 'deno', 'location': 'land'})
 })
+
+
+test('remote - isType', () => {
+    const arr = [1, 2, 3, 's']
+    const arr2 = [['1', '2'], [ 3, 4]]
+    const arr3 = [['dog', ['sun', 'sky'], 'moon'], 'test']
+
+    assert(!arr.isType('number'))
+    assert(!arr2.isType('number'))
+    assert(arr3.isType('string'))
+})
