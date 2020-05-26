@@ -1,3 +1,6 @@
+/**
+ * Automagically binds these utility methods to Array.Prototype so that you can access them directly from an Array.
+ */
 declare global {
     interface Array<T> {
         chunk(size: number): Array<any>
