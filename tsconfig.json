@@ -1,6 +1,8 @@
 {
     "compilerOptions": {
-        "target": "ES2020",
-        "module": "ES2020"
+        "target": "ES2019",
+        "module": "ES2020",
+        "noImplicitAny": true,
+        "typeRoots": ["node_modules/@types"],
     }
 }
