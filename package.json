@@ -12,7 +12,7 @@
     "test:deno": "deno test deno.remote.test.ts --reload",
     "release": "yarn build && node node_modules/np/source/cli.js",
     "src": "mkdir src",
-    "cp": "yes | cp -rf mod.ts src/ && sed -i 's,https://deno.land/x/arrays/mod.ts,ts-arrays,g' src/mod.ts",
+    "cp": "yes | cp -rf mod.ts src/ && sed -i \"s,import 'https://deno.land/x/arrays/mod.ts',import 'ts-arrays',g\" src/mod.ts",
     "docs": "./node_modules/typedoc/bin/typedoc --mode file --out docs src/ && rm -rf src/ && touch docs/.nojekyll"
   },
   "repository": {

@@ -68,7 +68,7 @@ export namespace Arrays {
     /**
      * Returns an array with all falsey values (false, null, 0, '', undefined, and NaN) removed.
      *
-     *     import from 'https://deno.land/x/arrays/mod.ts'
+     *     import 'https://deno.land/x/arrays/mod.ts'
      * 
      *     const arr = [1, 2, 3, 4, NaN, 5, null, 6]
      *     const compactArr = arr.compact()
@@ -82,7 +82,7 @@ export namespace Arrays {
     /**
      * Merge the elements from the rest of the arrays (args) to the first array. A nested array will be considered as a single value.
      *
-     *     import from 'https://deno.land/x/arrays/mod.ts'
+     *     import 'https://deno.land/x/arrays/mod.ts'
      * 
      *     const arr1 = [1, 2, 3, 4]
      *     const arr2 = ['dog', 'cat']
@@ -101,7 +101,7 @@ export namespace Arrays {
     /**
      * Returns the unique values from a given array. Optionally pass in a boolean to specify if the result should be sorted.
      *
-     *     import from 'https://deno.land/x/arrays/mod.ts'
+     *     import 'https://deno.land/x/arrays/mod.ts'
      * 
      *     const arr = [1, 1, 'Dog', 'Dog', 123.42, 123.42]
      *     const uniqueArr = arr.unique()
@@ -116,7 +116,7 @@ export namespace Arrays {
     /**
      * Returns the common values from all the given arrays.
      *
-     *     import from 'https://deno.land/x/arrays/mod.ts'
+     *     import 'https://deno.land/x/arrays/mod.ts'
      * 
      *     const arr1 = [1, 2, 3, 4]
      *     const arr2 = [2, 'cat']
@@ -135,7 +135,7 @@ export namespace Arrays {
     /**
      * Returns the unique elements in an array compared to the rest of the arrays (args).
      *
-     *     import from 'https://deno.land/x/arrays/mod.ts'
+     *     import 'https://deno.land/x/arrays/mod.ts'
      * 
      *     const arr1 = [1, 2, 3, 4]
      *     const arr2 = [2, 'cat']
@@ -154,7 +154,7 @@ export namespace Arrays {
     /**
      * Returns an array without the values passed as args.
      *
-     *     import from 'https://deno.land/x/arrays/mod.ts'
+     *     import 'https://deno.land/x/arrays/mod.ts'
      * 
      *     const arr = [1, 1, 'Dog', 'Dog', 123.42, 123.42]
      *     const res = arr.remove('Dog')
@@ -172,7 +172,7 @@ export namespace Arrays {
     /**
      * Flattens an arrays of arrays into a single array.
      * 
-     *     import from 'https://deno.land/x/arrays/mod.ts'
+     *     import 'https://deno.land/x/arrays/mod.ts'
      * 
      *     const arr = [[ 'cheetah', 'rhino', ['sun', 'moon'], [['nested nested', 'test']]], 4]
      *     const res = arr.flatten()
@@ -188,7 +188,7 @@ export namespace Arrays {
     /**
      * Checks if all the elements in the source array are present in the other arrays (args).
      *
-     *     import from 'https://deno.land/x/arrays/mod.ts'
+     *     import 'https://deno.land/x/arrays/mod.ts'
      * 
      *     const arr1 = [1, 2, 3, 4]
      *     const arr2 = [2, 'cat']
@@ -213,7 +213,7 @@ export namespace Arrays {
     /**
      * Converts the nested arrays of an array into a single object of key-value pairs.
      * 
-     *     import from 'https://deno.land/x/arrays/mod.ts'
+     *     import 'https://deno.land/x/arrays/mod.ts'
      * 
      *     const arr = [['name', 'deno'], ['location', 'land']].toObject()
      *     // => { 'name': 'deno', 'location': 'land' }
@@ -226,7 +226,7 @@ export namespace Arrays {
     /**
      * Flattens an array and checks if all the elements are of the specified type.
      * 
-     *     import from 'https://deno.land/x/arrays/mod.ts'
+     *     import 'https://deno.land/x/arrays/mod.ts'
      * 
      *     const arr = [['dog', ['sun', 'sky'], 'moon'], 'test']
      *     const isValid = arr.isType('number')
@@ -263,7 +263,7 @@ declare global {
         /**
          * Returns an array with all falsey values (false, null, 0, '', undefined, and NaN) removed.
          *
-         *     import from 'https://deno.land/x/arrays/mod.ts'
+         *     import 'https://deno.land/x/arrays/mod.ts'
          * 
          *     const arr = [1, 2, 3, 4, NaN, 5, null, 6]
          *     const compactArr = arr.compact()
@@ -275,7 +275,7 @@ declare global {
         /**
          * Merge the elements from the rest of the arrays (args) to the first array. A nested array will be considered as a single value.
          *
-         *     import from 'https://deno.land/x/arrays/mod.ts'
+         *     import 'https://deno.land/x/arrays/mod.ts'
          * 
          *     const arr1 = [1, 2, 3, 4]
          *     const arr2 = ['dog', 'cat']
@@ -292,7 +292,7 @@ declare global {
         /**
          * Returns the unique values from a given array. Optionally pass in a boolean to specify if the result should be sorted.
          *
-         *     import from 'https://deno.land/x/arrays/mod.ts'
+         *     import 'https://deno.land/x/arrays/mod.ts'
          * 
          *     const arr = [1, 1, 'Dog', 'Dog', 123.42, 123.42]
          *     const uniqueArr = arr.unique()
@@ -305,7 +305,7 @@ declare global {
         /**
          * Returns the common values from all the given arrays.
          *
-         *     import from 'https://deno.land/x/arrays/mod.ts'
+         *     import 'https://deno.land/x/arrays/mod.ts'
          * 
          *     const arr1 = [1, 2, 3, 4]
          *     const arr2 = [2, 'cat']
@@ -322,7 +322,7 @@ declare global {
         /**
          * Returns the unique elements in an array compared to the rest of the arrays (args).
          *
-         *     import from 'https://deno.land/x/arrays/mod.ts'
+         *     import 'https://deno.land/x/arrays/mod.ts'
          * 
          *     const arr1 = [1, 2, 3, 4]
          *     const arr2 = [2, 'cat']
@@ -339,7 +339,7 @@ declare global {
         /**
          * Returns an array without the values passed as args.
          *
-         *     import from 'https://deno.land/x/arrays/mod.ts'
+         *     import 'https://deno.land/x/arrays/mod.ts'
          * 
          *     const arr = [1, 1, 'Dog', 'Dog', 123.42, 123.42]
          *     const res = arr.remove('Dog')
@@ -355,7 +355,7 @@ declare global {
         /**
          * Flattens an arrays of arrays into a single array.
          * 
-         *     import from 'https://deno.land/x/arrays/mod.ts'
+         *     import 'https://deno.land/x/arrays/mod.ts'
          * 
          *     const arr = [[ 'cheetah', 'rhino', ['sun', 'moon'], [['nested nested', 'test']]], 4]
          *     const res = arr.flatten()
@@ -367,7 +367,7 @@ declare global {
         /**
          * Checks if all the elements in the source array are present in the other arrays (args).
          *
-         *     import from 'https://deno.land/x/arrays/mod.ts'
+         *     import 'https://deno.land/x/arrays/mod.ts'
          * 
          *     const arr1 = [1, 2, 3, 4]
          *     const arr2 = [2, 'cat']
@@ -390,7 +390,7 @@ declare global {
         /**
          * Converts the nested arrays of an array into a single object of key-value pairs.
          * 
-         *     import from 'https://deno.land/x/arrays/mod.ts'
+         *     import 'https://deno.land/x/arrays/mod.ts'
          * 
          *     const arr = [['name', 'deno'], ['location', 'land']].toObject()
          *     // => { 'name': 'deno', 'location': 'land' }
@@ -401,7 +401,7 @@ declare global {
         /**
          * Flattens an array and checks if all the elements are of the specified type.
          * 
-         *     import from 'https://deno.land/x/arrays/mod.ts'
+         *     import 'https://deno.land/x/arrays/mod.ts'
          * 
          *     const arr = [['dog', ['sun', 'sky'], 'moon'], 'test']
          *     const isValid = arr.isType('number')

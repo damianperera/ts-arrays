@@ -170,7 +170,7 @@
 								<div class="lead">
 									<p>Returns the common values from all the given arrays.</p>
 								</div>
-								<pre><code><span class="hljs-keyword">import</span> <span class="hljs-keyword">from</span> <span class="hljs-string">'ts-arrays'</span>
+								<pre><code><span class="hljs-keyword">import</span> <span class="hljs-string">'ts-arrays'</span>
 
 <span class="hljs-keyword">const</span> arr1 = [<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>, <span class="hljs-number">4</span>]
 <span class="hljs-keyword">const</span> arr2 = [<span class="hljs-number">2</span>, <span class="hljs-string">'cat'</span>]
@@ -210,11 +210,11 @@
 								<div class="lead">
 									<p>Returns an array with all falsey values (false, null, 0, &#39;&#39;, undefined, and NaN) removed.</p>
 								</div>
-								<pre><code><span class="hljs-keyword">import</span> <span class="hljs-keyword">from</span> <span class="hljs-string">'ts-arrays'</span>
+								<pre><code><span class="hljs-string">import</span> <span class="hljs-string">'ts-arrays'</span>
 
-<span class="hljs-keyword">const</span> arr = [<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>, <span class="hljs-number">4</span>, NaN, <span class="hljs-number">5</span>, <span class="hljs-literal">null</span>, <span class="hljs-number">6</span>]
-<span class="hljs-keyword">const</span> compactArr = arr.compact()
-<span class="hljs-comment">// =&gt; [1, 2, 3, 4, 5, 6]</span></code></pre>
+<span class="hljs-string">const</span> <span class="hljs-string">arr</span> <span class="hljs-string">=</span> <span class="hljs-string">[1,</span> <span class="hljs-number">2</span><span class="hljs-string">,</span> <span class="hljs-number">3</span><span class="hljs-string">,</span> <span class="hljs-number">4</span><span class="hljs-string">,</span> <span class="hljs-string">NaN,</span> <span class="hljs-number">5</span><span class="hljs-string">,</span> <span class="hljs-literal">null</span><span class="hljs-string">,</span> <span class="hljs-number">6</span><span class="hljs-string">]</span>
+<span class="hljs-string">const</span> <span class="hljs-string">compactArr</span> <span class="hljs-string">=</span> <span class="hljs-string">arr.compact()</span>
+<span class="hljs-string">//</span> <span class="hljs-string">=&gt;</span> <span class="hljs-string">[1,</span> <span class="hljs-number">2</span><span class="hljs-string">,</span> <span class="hljs-number">3</span><span class="hljs-string">,</span> <span class="hljs-number">4</span><span class="hljs-string">,</span> <span class="hljs-number">5</span><span class="hljs-string">,</span> <span class="hljs-number">6</span><span class="hljs-string">]</span></code></pre>
 							</div>
 							<h4 class="tsd-returns-title">Returns <a href="__global.array.html" class="tsd-signature-type">Array</a><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">&gt;</span></h4>
 						</li>
@@ -237,7 +237,7 @@
 								<div class="lead">
 									<p>Checks if all the elements in the source array are present in the other arrays (args).</p>
 								</div>
-								<pre><code><span class="hljs-keyword">import</span> <span class="hljs-keyword">from</span> <span class="hljs-string">'ts-arrays'</span>
+								<pre><code><span class="hljs-keyword">import</span> <span class="hljs-string">'ts-arrays'</span>
 
 <span class="hljs-keyword">const</span> arr1 = [<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>, <span class="hljs-number">4</span>]
 <span class="hljs-keyword">const</span> arr2 = [<span class="hljs-number">2</span>, <span class="hljs-string">'cat'</span>]
@@ -283,7 +283,7 @@
 								<div class="lead">
 									<p>Returns the unique elements in an array compared to the rest of the arrays (args).</p>
 								</div>
-								<pre><code><span class="hljs-keyword">import</span> <span class="hljs-keyword">from</span> <span class="hljs-string">'ts-arrays'</span>
+								<pre><code><span class="hljs-keyword">import</span> <span class="hljs-string">'ts-arrays'</span>
 
 <span class="hljs-keyword">const</span> arr1 = [<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>, <span class="hljs-number">4</span>]
 <span class="hljs-keyword">const</span> arr2 = [<span class="hljs-number">2</span>, <span class="hljs-string">'cat'</span>]
@@ -323,7 +323,7 @@
 								<div class="lead">
 									<p>Flattens an arrays of arrays into a single array.</p>
 								</div>
-								<pre><code>import from <span class="hljs-string">'ts-arrays'</span>
+								<pre><code>import <span class="hljs-string">'ts-arrays'</span>
 
 const arr = [[ <span class="hljs-string">'cheetah'</span>, <span class="hljs-string">'rhino'</span>, [<span class="hljs-string">'sun'</span>, <span class="hljs-string">'moon'</span>], [[<span class="hljs-string">'nested nested'</span>, <span class="hljs-string">'test'</span>]]], <span class="hljs-number">4</span>]
 const res = arr.flatten()
@@ -350,7 +350,7 @@ const res = arr.flatten()
 								<div class="lead">
 									<p>Flattens an array and checks if all the elements are of the specified type.</p>
 								</div>
-								<pre><code><span class="hljs-keyword">import</span> <span class="hljs-keyword">from</span> <span class="hljs-string">'ts-arrays'</span>
+								<pre><code><span class="hljs-keyword">import</span> <span class="hljs-string">'ts-arrays'</span>
 
 <span class="hljs-keyword">const</span> arr = [[<span class="hljs-string">'dog'</span>, [<span class="hljs-string">'sun'</span>, <span class="hljs-string">'sky'</span>], <span class="hljs-string">'moon'</span>], <span class="hljs-string">'test'</span>]
 <span class="hljs-keyword">const</span> isValid = arr.isType(<span class="hljs-string">'number'</span>)
@@ -383,7 +383,7 @@ const res = arr.flatten()
 								<div class="lead">
 									<p>Merge the elements from the rest of the arrays (args) to the first array. A nested array will be considered as a single value.</p>
 								</div>
-								<pre><code>import from <span class="hljs-string">'ts-arrays'</span>
+								<pre><code>import <span class="hljs-string">'ts-arrays'</span>
 
 const arr1 = [<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>, <span class="hljs-number">4</span>]
 const arr2 = [<span class="hljs-string">'dog'</span>, <span class="hljs-string">'cat'</span>]
@@ -423,7 +423,7 @@ const mergedArr = arr1.merge(arr2, arr3, arr4)
 								<div class="lead">
 									<p>Returns an array without the values passed as args.</p>
 								</div>
-								<pre><code>import <span class="hljs-keyword">from</span> <span class="hljs-string">'ts-arrays'</span>
+								<pre><code>import <span class="hljs-string">'ts-arrays'</span>
 
 <span class="hljs-keyword">const</span> arr = [<span class="hljs-number">1</span>, <span class="hljs-number">1</span>, <span class="hljs-string">'Dog'</span>, <span class="hljs-string">'Dog'</span>, <span class="hljs-number">123.42</span>, <span class="hljs-number">123.42</span>]
 <span class="hljs-keyword">const</span> res = arr.<span class="hljs-keyword">remove</span>(<span class="hljs-string">'Dog'</span>)
@@ -462,7 +462,7 @@ const mergedArr = arr1.merge(arr2, arr3, arr4)
 								<div class="lead">
 									<p>Converts the nested arrays of an array into a single object of key-value pairs.</p>
 								</div>
-								<pre><code>import from <span class="hljs-string">'ts-arrays'</span>
+								<pre><code>import <span class="hljs-string">'ts-arrays'</span>
 
 const arr = [[<span class="hljs-string">'name'</span>, <span class="hljs-string">'deno'</span>], [<span class="hljs-string">'location'</span>, <span class="hljs-string">'land'</span>]].toObject()
 // =&gt; { <span class="hljs-string">'name'</span>: <span class="hljs-string">'deno'</span>, <span class="hljs-string">'location'</span>: <span class="hljs-string">'land'</span> }</code></pre>
@@ -488,7 +488,7 @@ const arr = [[<span class="hljs-string">'name'</span>, <span class="hljs-string"
 								<div class="lead">
 									<p>Returns the unique values from a given array. Optionally pass in a boolean to specify if the result should be sorted.</p>
 								</div>
-								<pre><code><span class="hljs-keyword">import</span> <span class="hljs-keyword">from</span> <span class="hljs-string">'ts-arrays'</span>
+								<pre><code><span class="hljs-keyword">import</span> <span class="hljs-string">'ts-arrays'</span>
 
 <span class="hljs-keyword">const</span> arr = [<span class="hljs-number">1</span>, <span class="hljs-number">1</span>, <span class="hljs-string">'Dog'</span>, <span class="hljs-string">'Dog'</span>, <span class="hljs-number">123.42</span>, <span class="hljs-number">123.42</span>]
 <span class="hljs-keyword">const</span> uniqueArr = arr.unique()
