@@ -1,3 +1,5 @@
+import * as log from 'https://deno.land/std/log/mod.ts'
+
 declare global {
     interface Array<T> {
         chunk(size: number): Array<any>
@@ -9,11 +11,14 @@ declare global {
         remove(...args: any): Array<any>
         flatten(): Array<any>
         containsAll(...args: Array<any>): Boolean
+        toObject(): Object
     }
 }
 
 export namespace Arrays {
     
+    log.info('Binding Array utility methods from https://deno.land/x/arrays to Array.Prototype')
+
     const isValidArray = (array: Array<any>): Boolean => Boolean(Array.isArray(array) && array.length);
 
     Array.prototype.chunk = function(size: number): Array<any> {
@@ -52,6 +57,10 @@ export namespace Arrays {
         return containsAll(this, ...args)
     }
 
+    Array.prototype.toObject = function(): Object {
+        return toObject(this)
+    }
+
     /**
      * Returns an array split into chunks. If the array can't be split equally based on the given size, the last chunk will be the remaining elements.
      *
@@ -68,7 +77,7 @@ export namespace Arrays {
     }
 
     /**
-     * Returns an array with all falsey values (false, null, 0, "", undefined, and NaN) removed.
+     * Returns an array with all falsey values (false, null, 0, '', undefined, and NaN) removed.
      *
      *     import from 'https://deno.land/x/arrays/mod.ts'
      * 
@@ -86,9 +95,9 @@ export namespace Arrays {
      *     import from 'https://deno.land/x/arrays/mod.ts'
      * 
      *     const arr1 = [1, 2, 3, 4]
-     *     const arr2 = ["dog", "cat"]
+     *     const arr2 = ['dog', 'cat']
      *     const arr3 = [1.1, 2.2, 3.3]
-     *     const arr4 = [[ "cheetah", "rhino" ], "monkey"]
+     *     const arr4 = [[ 'cheetah', 'rhino' ], 'monkey']
      * 
      *     const mergedArr = arr1.merge(arr2, arr3, arr4)
      * 
@@ -103,7 +112,7 @@ export namespace Arrays {
      *
      *     import from 'https://deno.land/x/arrays/mod.ts'
      * 
-     *     const arr = [1, 1, "Dog", "Dog", 123.42, 123.42]
+     *     const arr = [1, 1, 'Dog', 'Dog', 123.42, 123.42]
      *     const uniqueArr = arr.unique()
      * 
      * @param {Boolean} sort - Return sorted values, defaults to false
@@ -118,9 +127,9 @@ export namespace Arrays {
      *     import from 'https://deno.land/x/arrays/mod.ts'
      * 
      *     const arr1 = [1, 2, 3, 4]
-     *     const arr2 = [2, "cat"]
+     *     const arr2 = [2, 'cat']
      *     const arr3 = [1.1, 2.2, 3]
-     *     const arr4 = [[ "cheetah", "rhino" ], 4]
+     *     const arr4 = [[ 'cheetah', 'rhino' ], 4]
      * 
      *     const commonArr = arr1.common(arr2, arr3, arr4)
      * 
@@ -136,9 +145,9 @@ export namespace Arrays {
      *     import from 'https://deno.land/x/arrays/mod.ts'
      * 
      *     const arr1 = [1, 2, 3, 4]
-     *     const arr2 = [2, "cat"]
+     *     const arr2 = [2, 'cat']
      *     const arr3 = [1.1, 2.2, 3]
-     *     const arr4 = [[ "cheetah", "rhino" ], 4]
+     *     const arr4 = [[ 'cheetah', 'rhino' ], 4]
      * 
      *     const diffArr = arr1.diff(arr2, arr3, arr4)
      * 
@@ -149,16 +158,20 @@ export namespace Arrays {
     }
 
     /**
-     * Returns an array without the elements in the rest of the arrays (args).
+     * Returns an array without the values passed as args.
      *
      *     import from 'https://deno.land/x/arrays/mod.ts'
      * 
-     *     const arr = [1, 1, "Dog", "Dog", 123.42, 123.42]
-     *     const res = arr.remove("Dog")
+     *     const arr = [1, 1, 'Dog', 'Dog', 123.42, 123.42]
+     *     const res = arr.remove('Dog')
+     *     // => [1, 1, 123.42, 123.42]
      * 
-     * @param {Array} args - Rest of the arrays
+     *     const res2 = arr.remove(1, "Dog")
+     *     // => [123.42, 123.42]
+     * 
+     * @param {any} args - Elements to remove
      */
-    export function remove(array: Array<any>, ...args: any) : Array<any> {
+    export function remove(array: Array<any>, ...args: any): Array<any> {
         return array.filter((value) => !args.includes(value))
     }
 
@@ -167,11 +180,12 @@ export namespace Arrays {
      * 
      *     import from 'https://deno.land/x/arrays/mod.ts'
      * 
-     *     const arr = [[ "cheetah", "rhino", ["sun", "moon"], [["nested nested", "test"]]], 4]
+     *     const arr = [[ 'cheetah', 'rhino', ['sun', 'moon'], [['nested nested', 'test']]], 4]
      *     const res = arr.flatten()
+     *     // => ['cheetah', 'rhino', 'sun', 'moon', 'nested nested', 'test', 4]
      * 
      */
-    export function flatten(array: Array<any>) : Array<any> {
+    export function flatten(array: Array<any>): Array<any> {
         return array.reduce((accumulator, value) => {
             return accumulator.concat(Array.isArray(value) ? flatten(value) : value)
         }, [])
@@ -183,20 +197,36 @@ export namespace Arrays {
      *     import from 'https://deno.land/x/arrays/mod.ts'
      * 
      *     const arr1 = [1, 2, 3, 4]
-     *     const arr2 = [2, "cat"]
+     *     const arr2 = [2, 'cat']
      *     const arr3 = [1.1, 2.2, 3]
-     *     const arr4 = [[ "cheetah", "rhino" ], 4]
+     *     const arr4 = [[ 'cheetah', 'rhino' ], 4]
      * 
-     *     const arr5 = ["deno", "land"]
-     *     const arr6 = ["land", "deno"]
+     *     const arr5 = ['deno', 'land']
+     *     const arr6 = ['land', 'deno']
      * 
      *     const falseyArr = arr1.containsAll(arr1, arr2, arr3, arr4)
+     *     // => false
+     * 
      *     const truthyArr = arr5.containsAll(arr6)
+     *     // => true
      * 
      * @param {Array} args - Rest of the arrays
      */
-    export function containsAll(source: Array<any>, ...args: Array<any>) : Boolean {
+    export function containsAll(source: Array<any>, ...args: Array<any>): Boolean {
         return diff(source, ...args).length === 0
+    }
+
+    /**
+     * Converts the nested arrays of an array into a single object of key-value pairs.
+     * 
+     *     import from 'https://deno.land/x/arrays/mod.ts'
+     * 
+     *     const arr = [['name', 'deno'], ['location', 'land']].toObject()
+     *     // => { 'name': 'deno', 'location': 'land' }
+     * 
+     */
+    export function toObject(array: Array<any>): Object {
+        return Object.fromEntries(array)
     }
     
 }
