@@ -3,7 +3,7 @@
 
 Provides utility methods for common Array operations. Supports both Deno and Node.js runtimes.
 
-## Deno :sauropod: [![deno doc](https://doc.deno.land/badge.svg)](https://doc.deno.land/https/deno.land/x/arrays/mod.ts)
+## Deno [![deno doc](https://doc.deno.land/badge.svg)](https://doc.deno.land/https/deno.land/x/arrays/mod.ts)
 For usage examples in Deno and related documentation please view the [Deno Docs](https://doc.deno.land/https/deno.land/x/arrays/mod.ts).
 
 ## Node.js [![node doc](https://img.shields.io/badge/node-doc-blue)](https://damianperera.github.io/array-utils/interfaces/__global.array.html)
