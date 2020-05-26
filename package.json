@@ -1,0 +1,33 @@
+{
+  "name": "array-utils",
+  "version": "1.0.0",
+  "description": "Provides utility methods for common Array operations.",
+  "main": "mod.ts",
+  "scripts": {
+    "test": "yarn test:jest && yarn test:deno",
+    "test:jest": "jest local.test.ts",
+    "test:deno": "deno test deno.remote.test.ts"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/damianperera/array-utils.git"
+  },
+  "keywords": [
+    "array",
+    "utils",
+    "typescript"
+  ],
+  "author": "Damian Perera <damianperera@outlook.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/damianperera/array-utils/issues"
+  },
+  "homepage": "https://github.com/damianperera/array-utils#readme",
+  "devDependencies": {
+    "@types/jest": "^25.2.3",
+    "jest": "^26.0.1",
+    "jest-cli": "^26.0.1",
+    "ts-jest": "^26.0.0",
+    "typescript": "^3.9.3"
+  }
+}

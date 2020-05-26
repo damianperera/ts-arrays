@@ -3,20 +3,20 @@ import 'https://deno.land/x/arrays/mod.ts'
 
 const { test } = Deno
 
-test('remote - chunk', () => {
+test('chunk', () => {
     const arr = [1, 2, 3]
     const res = arr.chunk(2)
     assertEquals(2, res.length)
     assertEquals(3, res[1][0])
 })
 
-test('remote - compact', () => {
+test('compact', () => {
     const arr = [ 0, 1, NaN, 2, false, 3, '', 4, null, 5]
     const res = arr.compact()
     assertEquals(5, res.length)
 })
 
-test('remote - merge', () => {
+test('merge', () => {
     const arr1 = [1, 2, 3, 4]
     const arr2 = ['dog', 'cat']
     const arr3 = [1.1, 2.2, 3.3]
@@ -26,14 +26,14 @@ test('remote - merge', () => {
     assertEquals(11, res.length)
 })
 
-test('remote - unique', () => {
+test('unique', () => {
     const arr = [1, 1, 'Dog', 'Dog', 123.42, 123.42]
     const res = arr.unique()
 
     assertEquals(3, res.length)
 })
 
-test('remote - common', () => {
+test('common', () => {
     const arr1 = [1, 2, 3, 4]
     const arr2 = [2, 'cat']
     const arr3 = [1.1, 2.2, 3]
@@ -43,7 +43,7 @@ test('remote - common', () => {
     assertEquals(3, res.length)
 })
 
-test('remote - diff', () => {
+test('diff', () => {
     const arr1 = [1, 2, 3, 4]
     const arr2 = [2, 'cat']
     const arr3 = [1.1, 2.2, 3]
@@ -53,7 +53,7 @@ test('remote - diff', () => {
     assertEquals(1, res.length)
 })
 
-test('remote - remove', () => {
+test('remove', () => {
     const arr = [1, 1, 'Dog', 'Dog', 123.42, 123.42]
     const res = arr.remove('Dog')
     const res2 = arr.remove(1, "Dog")
@@ -62,14 +62,14 @@ test('remote - remove', () => {
     assertEquals(2, res2.length)
 })
 
-test('remote - flatten', () => {
+test('flatten', () => {
     const arr = [[ 'cheetah', 'rhino', ['sun', 'moon'], [['nested nested', 'test']]], 4]
     const res = arr.flatten()
 
     assertEquals(7, res.length)
 })
 
-test('remote - containAll', () => {
+test('containAll', () => {
     const arr1 = [1, 2, 3, 4]
     const arr2 = [2, 'cat']
     const arr3 = [1.1, 2.2, 3]
@@ -85,14 +85,14 @@ test('remote - containAll', () => {
     assertEquals(true, res2)
 })
 
-test('remote - toObject', () => {
+test('toObject', () => {
     const obj = [['name', 'deno'], ['location', 'land']].toObject()
 
     assert(typeof obj === 'object')
     assertEquals(obj, {'name': 'deno', 'location': 'land'})
 })
 
-test('remote - isType', () => {
+test('isType', () => {
     const arr = [1, 2, 3, 's']
     const arr2 = [['1', '2'], [ 3, 4]]
     const arr3 = [['dog', ['sun', 'sky'], 'moon'], 'test']
