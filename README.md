@@ -16,7 +16,7 @@ For usage examples and related documentation please view the [Deno Docs](https:/
 ## Node.js
 
 ```console
-foo@bar:~$ npm install --save ts-arrays
+$ npm install --save ts-arrays
 ```
 
 For usage examples and related documentation please view the [Node Docs](https://damianperera.github.io/ts-arrays/interfaces/__global.array.html).
@@ -26,19 +26,19 @@ For usage examples and related documentation please view the [Node Docs](https:/
 ## Running Tests
 In order to run both the Deno and Jest suites, execute the following command from the root directory.
 ```console
-foo@bar:~$ yarn test
+$ yarn test
 ```
 
 ### Jest
 In order to run only the Jest suite, execute the following command from the root directory.
 ```console
-foo@bar:~$ yarn test:jest
+$ yarn test:jest
 ```
 
 ### Deno
 In order to run only the Deno suite, execute the following command from the root directory.
 ```console
-foo@bar:~$ yarn test:deno
+$ yarn test:deno
 ```
 
 # License
