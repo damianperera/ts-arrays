@@ -1,31 +1,11 @@
-import * as log from 'https://deno.land/std/log/mod.ts'
-
-type Primitive = string | boolean | number | any;
-
-declare global {
-    interface Array<T> {
-        chunk(size: number): Array<any>
-        compact(): Array<any>
-        merge(...args: Array<any>): Array<any>
-        unique(sort?: Boolean): Array<any>
-        common(...args: Array<any>): Array<any>
-        diff(...args: Array<any>): Array<any>
-        remove(...args: any): Array<any>
-        flatten(): Array<any>
-        containsAll(...args: Array<any>): Boolean
-        toObject(): Object
-        isType(value: string): Boolean
-    }
-}
-
 /**
  * Extends Array.Prototype with the below functions.
+ * 
+ * @author Damian Perera
  */
 export namespace Arrays {
     
     const isValidArray = (array: Array<any>): Boolean => Boolean(Array.isArray(array) && array.length);
-
-    log.debug('Extending Array.Prototype with functions from https://deno.land/x/arrays')
 
     Array.prototype.chunk = function(size: number): Array<any> {
         return chunk(this, size)
@@ -260,4 +240,20 @@ export namespace Arrays {
         return array.flatten().every(x => typeof x === type)
     }
     
+}
+
+declare global {
+    interface Array<T> {
+        chunk(size: number): Array<any>
+        compact(): Array<any>
+        merge(...args: Array<any>): Array<any>
+        unique(sort?: Boolean): Array<any>
+        common(...args: Array<any>): Array<any>
+        diff(...args: Array<any>): Array<any>
+        remove(...args: any): Array<any>
+        flatten(): Array<any>
+        containsAll(...args: Array<any>): Boolean
+        toObject(): Object
+        isType(value: string): Boolean
+    }
 }
