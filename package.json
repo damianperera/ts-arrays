@@ -7,7 +7,7 @@
     "test": "yarn test:jest && yarn test:deno",
     "test:jest": "jest jest.local.test.ts --coverage",
     "test:deno": "deno test deno.remote.test.ts --reload",
-    "docs": "mkdir src && cp mod.ts src/ && sed -i 's,https://deno.land/x/arrays/mod.ts,array-utils,g' src/mod.ts >> src/mod.ts && ./node_modules/typedoc/bin/typedoc --plugin typedoc-plugin-markdown --theme markdown --mode file --out docs src/ && rm -rf src/"
+    "docs": "mkdir src && cp mod.ts src/ && sed -i 's,https://deno.land/x/arrays/mod.ts,array-utils,g' src/mod.ts && ./node_modules/typedoc/bin/typedoc --mode file --out docs src/ && rm -rf src/"
   },
   "repository": {
     "type": "git",
@@ -27,12 +27,10 @@
   "devDependencies": {
     "@types/jest": "^25.2.3",
     "@types/node": "^14.0.5",
-    "concat-md": "^0.3.5",
     "jest": "^26.0.1",
     "jest-cli": "^26.0.1",
     "ts-jest": "^26.0.0",
     "typedoc": "^0.17.7",
-    "typedoc-plugin-markdown": "^2.2.17",
     "typescript": "^3.9.3"
   }
 }
