@@ -240,6 +240,22 @@ export namespace Arrays {
     
 }
 
+declare global {
+    interface Array<T> {
+        chunk(size: number): Array<any>
+        compact(): Array<any>
+        merge(...args: Array<any>): Array<any>
+        unique(sort?: Boolean): Array<any>
+        common(...args: Array<any>): Array<any>
+        diff(...args: Array<any>): Array<any>
+        remove(...args: any): Array<any>
+        flatten(): Array<any>
+        containsAll(...args: Array<any>): Boolean
+        toObject(): Object
+        isType(value: string): Boolean
+    }
+}
+
 /**
  * Utility methods for Iterables.
  */
@@ -275,11 +291,11 @@ export namespace Iterables {
           this.iterator = iterable[Symbol.iterator]()
           this.iteratorResults = []
         }
-      
-    }
 
-    function isMultableIterable<T>(iterable: Iterable<T>): iterable is MultipleIterable<T> {
-        return (iterable) && ((iterable as any).multipleIterable === true)
+        static isMultableIterable<T>(iterable: Iterable<T>): iterable is MultipleIterable<T> {
+            return (iterable) && ((iterable as any).multipleIterable === true)
+        }
+      
     }
 
     /**
@@ -300,7 +316,7 @@ export namespace Iterables {
      * @param {Iterable} iterable - An iterable
      */
     export function toMultipleIterable<T>(iterable: Iterable<T>): MultipleIterable<T> {
-        return isMultableIterable(iterable) ? iterable : new ReplayableIterable(iterable)
+        return ReplayableIterable.isMultableIterable(iterable) ? iterable : new ReplayableIterable(iterable)
     }
 
     /**
@@ -328,21 +344,5 @@ export namespace Iterables {
             size ++
         }
         return size
-    }
-}
-
-declare global {
-    interface Array<T> {
-        chunk(size: number): Array<any>
-        compact(): Array<any>
-        merge(...args: Array<any>): Array<any>
-        unique(sort?: Boolean): Array<any>
-        common(...args: Array<any>): Array<any>
-        diff(...args: Array<any>): Array<any>
-        remove(...args: any): Array<any>
-        flatten(): Array<any>
-        containsAll(...args: Array<any>): Boolean
-        toObject(): Object
-        isType(value: string): Boolean
     }
 }
