@@ -240,6 +240,16 @@ export namespace Arrays {
     
 }
 
+export namespace Iterable {
+    export function size(entries: { [Symbol.iterator] : any }): number {
+        let size = 0
+        for (const entry of entries) {
+            size ++
+        }
+        return size
+    }
+}
+
 declare global {
 
     /**

@@ -1,4 +1,4 @@
-import './mod.ts'
+import './mod'
 
 test('chunk', () => {
     const arr = [1, 2, 3]
