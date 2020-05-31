@@ -9,7 +9,7 @@
     "build:check": "tsc --noEmit",
     "test": "yarn test:jest && yarn test:deno",
     "test:jest": "jest jest.arrays.test.ts jest.iterable.test.ts --coverage",
-    "test:deno": "deno test deno.arrays.test.ts deno.iterable.test.ts --reload",
+    "test:deno": "deno test deno.arrays.test.ts deno.iterable.test.ts",
     "release": "yarn build && node node_modules/np/source/cli.js",
     "src": "mkdir src",
     "cp": "yes | cp -rf mod.ts src/ && sed -i \"s,import 'https://deno.land/x/arrays/mod.ts',import 'ts-arrays',g\" src/mod.ts",

@@ -1,5 +1,5 @@
 import { assert, assertEquals } from 'https://deno.land/std/testing/asserts.ts'
-import 'https://deno.land/x/arrays/mod.ts'
+import './mod.ts'
 
 const { test } = Deno
 

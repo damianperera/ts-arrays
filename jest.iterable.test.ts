@@ -1,23 +1,22 @@
-import { Iterable } from './mod'
+import { Iterables } from './mod'
 
 test('size', () => {
-    const nL = [1, 2, 3];
-    
-    let index = 0;
-    const iterator = {
-    next: () => {
-        if (index >= nL.length) {
-        return { done: true };
-        }
-        const value = nL[index++];
-        return { value, done: false };
-    }
-    };
-    
-    const iterable = {
-        [Symbol.iterator]: () => iterator
-      };
+    const iterableSize = 3
 
-    const sizeOfIterable: number = Iterable.size(iterable)
-    expect(sizeOfIterable).toBe(nL.length)
+    function* generator() {
+        let counter = 0;
+        while (counter < iterableSize) {
+            yield counter++;
+        }
+    }
+    
+    const iterator = generator()
+    const multipleIterable = Iterables.toMultipleIterable(iterator)
+
+    const sizeOfIterable: number = Iterables.size(multipleIterable)
+    expect(sizeOfIterable).toBe(iterableSize)
+
+    for (const entry of multipleIterable) {
+        expect(entry).toBeDefined()
+    }
 })

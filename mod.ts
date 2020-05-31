@@ -240,8 +240,50 @@ export namespace Arrays {
     
 }
 
-export namespace Iterable {
-    export function size(entries: { [Symbol.iterator] : any }): number {
+export namespace Iterables {
+
+    interface MultipleIterable<T> extends Iterable<T> {
+        multipleIterable: true;
+    }
+
+    class ReplayableIterable<T> implements MultipleIterable<T> {
+
+        multipleIterable = true as true;
+      
+        [Symbol.iterator](): Iterator<T> {
+          let cur = 0;
+          let iterable = this;
+          return {
+            next(): IteratorResult<T> {
+              while (cur >= iterable.iteratorResults.length) {
+                iterable.iteratorResults.push(iterable.iterator.next());
+              }
+              const ret: IteratorResult<T> = iterable.iteratorResults[cur];
+              cur++;
+              return ret;
+            }
+          }
+        }
+      
+        private iterator: Iterator<T>;
+        private iteratorResults: Array<IteratorResult<T>>;
+      
+        constructor(iterable: Iterable<T>) {
+          this.iterator = iterable[Symbol.iterator]();
+          this.iteratorResults = [];
+        }
+      
+    }
+
+    function isMultableIterable<T>(iterable: Iterable<T>): iterable is MultipleIterable<T> {
+        return (iterable) && ((iterable as any).multipleIterable === true);
+    }
+
+    export function toMultipleIterable<T>(iterable: Iterable<T>): MultipleIterable<T> {
+        return isMultableIterable(iterable) ? iterable : new ReplayableIterable(iterable);
+    }
+
+    export function size(entries: MultipleIterable<any>): number {
         let size = 0
         for (const entry of entries) {
             size ++
