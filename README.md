@@ -19,7 +19,7 @@ For usage examples and related documentation please view the [Deno Docs](https:/
 $ npm install --save ts-arrays
 ```
 
-For usage examples and related documentation please view the [Node Docs](https://damianperera.github.io/ts-arrays/interfaces/__global.array.html).
+For usage examples and related documentation please view the [Node Docs](https://damianperera.github.io/ts-arrays/modules/arrays.html).
 
 ---
 
