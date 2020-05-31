@@ -1,5 +1,5 @@
 /**
- * Extends Array.Prototype with the below functions.
+ * Extends [Array.Prototype](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array#Instance_methods) with the below functions.
  */
 export namespace Arrays {
     
@@ -283,7 +283,7 @@ export namespace Iterables {
     }
 
     /**
-     * Returns an Iterable that can be iterated multiple times.
+     * Returns an _Iterable_ that can be iterated multiple times.
      *
      *     import { Iterable } from 'https://deno.land/x/arrays/mod.ts'
      * 
@@ -334,7 +334,7 @@ export namespace Iterables {
 declare global {
 
     /**
-     * Extends [Array.Prototype](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array#Instance_methods) with the below methods.
+     * Extends [Array.Prototype](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array#Instance_methods) with the below functions.
      */
     interface Array<T> {
         /**
