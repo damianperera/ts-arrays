@@ -3,7 +3,7 @@ import { Iterables } from './mod.ts'
 
 const { test } = Deno
 
-test('size', () => {
+test('iterable/size', () => {
 
     const iterableSize = 3
 

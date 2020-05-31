@@ -3,20 +3,20 @@ import './mod.ts'
 
 const { test } = Deno
 
-test('chunk', () => {
+test('arrays/chunk', () => {
     const arr = [1, 2, 3]
     const res = arr.chunk(2)
     assertEquals(2, res.length)
     assertEquals(3, res[1][0])
 })
 
-test('compact', () => {
+test('arrays/compact', () => {
     const arr = [ 0, 1, NaN, 2, false, 3, '', 4, null, 5]
     const res = arr.compact()
     assertEquals(5, res.length)
 })
 
-test('merge', () => {
+test('arrays/merge', () => {
     const arr1 = [1, 2, 3, 4]
     const arr2 = ['dog', 'cat']
     const arr3 = [1.1, 2.2, 3.3]
@@ -26,14 +26,14 @@ test('merge', () => {
     assertEquals(11, res.length)
 })
 
-test('unique', () => {
+test('arrays/unique', () => {
     const arr = [1, 1, 'Dog', 'Dog', 123.42, 123.42]
     const res = arr.unique()
 
     assertEquals(3, res.length)
 })
 
-test('common', () => {
+test('arrays/common', () => {
     const arr1 = [1, 2, 3, 4]
     const arr2 = [2, 'cat']
     const arr3 = [1.1, 2.2, 3]
@@ -43,7 +43,7 @@ test('common', () => {
     assertEquals(3, res.length)
 })
 
-test('diff', () => {
+test('arrays/diff', () => {
     const arr1 = [1, 2, 3, 4]
     const arr2 = [2, 'cat']
     const arr3 = [1.1, 2.2, 3]
@@ -53,7 +53,7 @@ test('diff', () => {
     assertEquals(1, res.length)
 })
 
-test('remove', () => {
+test('arrays/remove', () => {
     const arr = [1, 1, 'Dog', 'Dog', 123.42, 123.42]
     const res = arr.remove('Dog')
     const res2 = arr.remove(1, "Dog")
@@ -62,14 +62,14 @@ test('remove', () => {
     assertEquals(2, res2.length)
 })
 
-test('flatten', () => {
+test('arrays/flatten', () => {
     const arr = [[ 'cheetah', 'rhino', ['sun', 'moon'], [['nested nested', 'test']]], 4]
     const res = arr.flatten()
 
     assertEquals(7, res.length)
 })
 
-test('containAll', () => {
+test('arrays/containAll', () => {
     const arr1 = [1, 2, 3, 4]
     const arr2 = [2, 'cat']
     const arr3 = [1.1, 2.2, 3]
@@ -85,14 +85,14 @@ test('containAll', () => {
     assertEquals(true, res2)
 })
 
-test('toObject', () => {
+test('arrays/toObject', () => {
     const obj = [['name', 'deno'], ['location', 'land']].toObject()
 
     assert(typeof obj === 'object')
     assertEquals(obj, {'name': 'deno', 'location': 'land'})
 })
 
-test('isType', () => {
+test('arrays/isType', () => {
     const arr = [1, 2, 3, 's']
     const arr2 = [['1', '2'], [ 3, 4]]
     const arr3 = [['dog', ['sun', 'sky'], 'moon'], 'test']

@@ -240,6 +240,9 @@ export namespace Arrays {
     
 }
 
+/**
+ * Utility methods for Iterables.
+ */
 export namespace Iterables {
 
     interface MultipleIterable<T> extends Iterable<T> {
@@ -279,11 +282,47 @@ export namespace Iterables {
         return (iterable) && ((iterable as any).multipleIterable === true);
     }
 
+    /**
+     * Returns an Iterable that can be iterated multiple times.
+     *
+     *     import { Iterable } from 'https://deno.land/x/arrays/mod.ts'
+     * 
+     *     function* generator() {
+     *         let counter = 0;
+     *         while (counter < 3) {
+     *             yield counter++;
+     *         }
+     *     }
+     *     
+     *     const iterator = generator()
+     *     const multipleIterable = Iterables.toMultipleIterable(iterator)
+     * 
+     * @param {Iterable} iterable - An iterable
+     */
     export function toMultipleIterable<T>(iterable: Iterable<T>): MultipleIterable<T> {
         return isMultableIterable(iterable) ? iterable : new ReplayableIterable(iterable);
     }
 
-    export function size(entries: MultipleIterable<any>): number {
+    /**
+     * Returns the size of an _Iterable_. In order to reuse the _Iterable_ that was passed, make sure
+     * to convert it to a _MultipleIterable_ first.
+     *
+     *     import { Iterable } from 'https://deno.land/x/arrays/mod.ts'
+     * 
+     *     function* generator() {
+     *         let counter = 0;
+     *         while (counter < 3) {
+     *             yield counter++;
+     *         }
+     *     }
+     *     
+     *     const iterator = generator()
+     *     const sizeOfIterable: number = Iterables.size(multipleIterable)
+     *     // => 3
+     * 
+     * @param {Iterable} iterable - An iterable
+     */
+    export function size(entries: Iterable<any>): number {
         let size = 0
         for (const entry of entries) {
             size ++
