@@ -1,6 +1,8 @@
 import { assertEquals } from 'https://deno.land/std/testing/asserts.ts'
 import { Iterable } from 'https://deno.land/x/arrays/mod.ts'
 
+const { test } = Deno
+
 test('size', () => {
     const nL = [1, 2, 3];
     
@@ -20,5 +22,5 @@ test('size', () => {
       };
 
     const sizeOfIterable: number = Iterable.size(iterable)
-    expect(sizeOfIterable).toBe(nL.length)
+    assertEquals(nL.length, sizeOfIterable)
 })
