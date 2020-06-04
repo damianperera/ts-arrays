@@ -300,7 +300,7 @@ export namespace Iterables {
 
     /**
      * Iterating over an iterator is said to consume the iterator, because it is generally only possible to do once. 
-     * This method returns an _Iterable_ that can be iterated multiple times.
+     * This method returns an _Iterable_ that can be iterated multiple times (e.g. in multiple for...of loops)
      *
      *     import { Iterable } from 'https://deno.land/x/arrays/mod.ts'
      * 
@@ -313,7 +313,6 @@ export namespace Iterables {
      *     
      *     const iterator = generator()
      *     const multipleIterable = Iterables.toMultipleIterable(iterator)
-     *     // => This can be reused in multiple for...of loops
      * 
      * @param {Iterable} iterable - An iterable
      */
