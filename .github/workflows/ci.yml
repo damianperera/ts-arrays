@@ -32,7 +32,7 @@ jobs:
         yarn src
         yarn build
         echo "//registry.npmjs.org//:_authToken=$AUTH_TOKEN" > ~/.npmrc
-        yarn release
+        yarn publish
       env:
         AUTH_TOKEN: ${{ secrets.NPM_AUTH }}
   docs:
