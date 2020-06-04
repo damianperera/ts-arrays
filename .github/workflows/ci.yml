@@ -31,7 +31,10 @@ jobs:
         yarn install
         yarn src
         yarn build
+        echo "//registry.npmjs.org//:_authToken=$AUTH_TOKEN" > ~/.npmrc
         yarn release
+      env:
+        AUTH_TOKEN: ${{ secrets.NPM_AUTH }}
   docs:
     needs: [release]
     runs-on: ubuntu-latest
