@@ -1,0 +1,28 @@
+name: Tests
+on:
+  push:
+    branches-ignore:
+      - master
+  pull_request:
+    branches:
+      - master
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v2
+      with:
+        persist-credentials: false
+    - name: Tests
+      run: |
+        curl -fsSL https://deno.land/x/install/install.sh | sh
+        export DENO_INSTALL="/home/runner/.deno"
+        export PATH="$DENO_INSTALL/bin:$PATH"
+        yarn install
+        yarn test
+    - name: Archive
+      uses: actions/upload-artifact@v2
+      with:
+        name: test-coverage-report
+        path: coverage/
