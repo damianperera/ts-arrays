@@ -4,6 +4,19 @@ on:
     branches:
       - master
 jobs:
+  testDeno:
+    runs-on: hayd/ubuntu-deno
+    steps:
+    - name: Test Deno
+      run: |
+        deno test
+  testNode:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Test Node.js
+      run: |
+        yarn install
+        yarn test:jest
   build:
     runs-on: ubuntu-latest
     steps:
@@ -11,10 +24,6 @@ jobs:
       uses: actions/checkout@v2
       with:
         persist-credentials: false
-    - name: Test
-      run: |
-        yarn install
-        yarn test
     - name: Build
       run: |
         yarn install
