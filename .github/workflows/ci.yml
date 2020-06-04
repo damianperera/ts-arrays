@@ -34,7 +34,7 @@ jobs:
     - name: Setup
       uses: fregante/setup-git-token@v1
       with:
-        token: ${{ secrets.GITHUB_TOKEN }}
+        token: ${{ secrets.ADMIN_HOOK }}
     - name: Build
       run: |
         yarn install
