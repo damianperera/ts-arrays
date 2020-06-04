@@ -9,7 +9,7 @@ on:
       - package.json
       - '.github/**'
 jobs:
-  test:
+  tests:
     runs-on: ubuntu-latest
     steps:
     - name: Checkout
