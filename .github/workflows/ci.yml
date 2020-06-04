@@ -3,6 +3,10 @@ on:
   push:
     branches:
       - master
+    tags-ignore:
+      - '*.*'
+    paths-ignore:
+      - package.json
 jobs:
   test:
     runs-on: ubuntu-latest
