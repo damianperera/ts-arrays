@@ -1,5 +1,5 @@
 # Arrays
-![CI](https://github.com/damianperera/ts-arrays/workflows/CI/badge.svg?branch=master) ![ES2019](https://img.shields.io/badge/ES-2019-success) ![ES2020](https://img.shields.io/badge/ES-2020-success)
+![CI](https://github.com/damianperera/ts-arrays/workflows/CI/badge.svg?branch=master&event=push) ![ES2019](https://img.shields.io/badge/ES-2019-success) ![ES2020](https://img.shields.io/badge/ES-2020-success)
 
 Provides utility methods for common Array operations. Supports both Deno and Node.js runtimes.
 
