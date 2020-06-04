@@ -4,20 +4,16 @@ on:
     branches:
       - master
 jobs:
-  testDeno:
-    runs-on: hayd/ubuntu-deno
-    steps:
-    - name: Test Deno
-      run: |
-        deno test
-  testNode:
+  test:
     runs-on: ubuntu-latest
     steps:
-    - name: Test Node.js
+    - name: Tests
       run: |
+        curl -fsSL https://deno.land/x/install/install.sh | sh
         yarn install
-        yarn test:jest
+        yarn test
   build:
+    needs: [test]
     runs-on: ubuntu-latest
     steps:
     - name: Checkout
