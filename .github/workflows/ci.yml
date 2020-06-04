@@ -7,6 +7,7 @@ on:
       - '*.*'
     paths-ignore:
       - package.json
+      - '.github/**'
 jobs:
   test:
     runs-on: ubuntu-latest
@@ -44,6 +45,8 @@ jobs:
         yarn install
         yarn src
         yarn build
+    - name: Deploy
+      run: |
         echo "//registry.npmjs.org/:_authToken=${NODE_AUTH_TOKEN}" > ~/.npmrc
         yarn version --patch
         yarn publish
