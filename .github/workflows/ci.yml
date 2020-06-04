@@ -8,13 +8,13 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - name: Tests
-      env:
-        DENO_INSTALL: /home/runner/.deno
-        PATH: $DENO_INSTALL/bin:$PATH
       run: |
         curl -fsSL https://deno.land/x/install/install.sh | sh
         yarn install
         yarn test
+      env:
+        DENO_INSTALL: /home/runner/.deno
+        PATH: $DENO_INSTALL/bin:$PATH
       shell: bash
   build:
     needs: [test]
