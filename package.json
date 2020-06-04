@@ -1,6 +1,6 @@
 {
   "name": "ts-arrays",
-  "version": "1.0.14",
+  "version": "1.0.15",
   "description": "Provides utility methods for common Array operations.",
   "main": "./lib/mod.js",
   "types": "./lib/mod.d.ts",
