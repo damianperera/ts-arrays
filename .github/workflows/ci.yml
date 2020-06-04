@@ -21,7 +21,7 @@ jobs:
     - name: Archive
       uses: actions/upload-artifact@v2
       with:
-        name: jest-test-report
+        name: test-coverage-report
         path: coverage/
   release:
     needs: [test]
