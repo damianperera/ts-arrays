@@ -18,8 +18,22 @@ jobs:
         export PATH="$DENO_INSTALL/bin:$PATH"
         yarn install
         yarn test
-  build:
+  release:
     needs: [test]
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v2
+      with:
+        persist-credentials: false
+    - name: Build
+      run: |
+        yarn install
+        yarn src
+        yarn build
+        yarn release
+  docs:
+    needs: [release]
     runs-on: ubuntu-latest
     steps:
     - name: Checkout

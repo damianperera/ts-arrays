@@ -10,7 +10,7 @@
     "test": "yarn test:jest && yarn test:deno",
     "test:jest": "jest jest.arrays.test.ts jest.iterable.test.ts --coverage",
     "test:deno": "deno test deno.arrays.test.ts deno.iterable.test.ts",
-    "release": "yarn build && node node_modules/np/source/cli.js",
+    "release": "yarn build && node node_modules/np/source/cli.js patch --yolo --no-release-draft",
     "src": "mkdir src",
     "cp": "yes | cp -rf mod.ts src/ && sed -i \"s,'https://deno.land/x/arrays/mod.ts','ts-arrays',g\" src/mod.ts",
     "docs": "./node_modules/typedoc/bin/typedoc --mode file --out docs --excludePrivate src/ && touch docs/.nojekyll"
