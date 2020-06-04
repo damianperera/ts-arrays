@@ -42,8 +42,8 @@ jobs:
         yarn build
         echo "//registry.npmjs.org/:_authToken=${NODE_AUTH_TOKEN}" > ~/.npmrc
         yarn version --patch
-        git push && git push --tags
         yarn publish
+        git push && git push --tags
       env:
         NODE_AUTH_TOKEN: ${{secrets.NPM_AUTH}}
   docs:
