@@ -19,44 +19,45 @@ jobs:
         yarn install
         yarn test
     - name: Archive
-      uses: actions/upload-artifact@v1
+      uses: actions/upload-artifact@v2
       with:
         name: jest-test-report
-        path: output/test/code-coverage.html
-  # release:
-  #   needs: [test]
-  #   runs-on: ubuntu-latest
-  #   steps:
-  #   - name: Checkout
-  #     uses: actions/checkout@v2
-  #     with:
-  #       persist-credentials: false
-  #   - name: Build
-  #     run: |
-  #       yarn install
-  #       yarn src
-  #       yarn build
-  #       echo "//registry.npmjs.org/:_authToken=${NODE_AUTH_TOKEN}" > ~/.npmrc
-  #       yarn publish
-  #     env:
-  #       NODE_AUTH_TOKEN: ${{secrets.NPM_AUTH}}
-  # docs:
-  #   needs: [release]
-  #   runs-on: ubuntu-latest
-  #   steps:
-  #   - name: Checkout
-  #     uses: actions/checkout@v2
-  #     with:
-  #       persist-credentials: false
-  #   - name: Build
-  #     run: |
-  #       yarn install
-  #       yarn src
-  #       yarn build
-  #       yarn docs
-  #   - name: Deploy
-  #     uses: JamesIves/github-pages-deploy-action@releases/v3
-  #     with:
-  #       GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-  #       BRANCH: gh-pages
-  #       FOLDER: docs
+        path: coverage/
+  release:
+    needs: [test]
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v2
+      with:
+        persist-credentials: false
+    - name: Build
+      run: |
+        yarn install
+        yarn src
+        yarn build
+        echo "//registry.npmjs.org/:_authToken=${NODE_AUTH_TOKEN}" > ~/.npmrc
+        yarn version --patch
+        yarn publish
+      env:
+        NODE_AUTH_TOKEN: ${{secrets.NPM_AUTH}}
+  docs:
+    needs: [release]
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v2
+      with:
+        persist-credentials: false
+    - name: Build
+      run: |
+        yarn install
+        yarn src
+        yarn build
+        yarn docs
+    - name: Deploy
+      uses: JamesIves/github-pages-deploy-action@releases/v3
+      with:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        BRANCH: gh-pages
+        FOLDER: docs
