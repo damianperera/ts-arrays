@@ -10,6 +10,8 @@ jobs:
     - name: Tests
       run: |
         curl -fsSL https://deno.land/x/install/install.sh | sh
+        export DENO_INSTALL="/home/runner/.deno"
+        export PATH="$DENO_INSTALL/bin:$PATH"
         yarn install
         yarn test
   build:
