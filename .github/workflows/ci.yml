@@ -35,6 +35,7 @@ jobs:
       run: |
         git config user.email "damianperera@outlook.com"
         git config user.name "GitHub Actions"
+        hub auth $GITHUB_TOKEN
     - name: Build
       run: |
         yarn install
@@ -42,10 +43,11 @@ jobs:
         yarn build
         echo "//registry.npmjs.org/:_authToken=${NODE_AUTH_TOKEN}" > ~/.npmrc
         yarn version --patch
-        git push
+        hub push
         yarn publish
       env:
         NODE_AUTH_TOKEN: ${{secrets.NPM_AUTH}}
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
   docs:
     needs: [release]
     runs-on: ubuntu-latest
